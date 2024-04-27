@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Reader</title>
+    {% load static %}
+</head>
+
+<body>
+    <h1>Cart Item</h1>
+    <p id = "cartItem"></p>
+
+    <h2>Item Reverse</h2>
+    <p id = "cartItemReverse"></p>
+
+    <br>
+
+    <h2>Consonants</h2>
+    <p id = "consonants"></p>
+
+    <h2>Vowels</h2>
+    <p id = "vowels"></p>
+
+
+
+
+    <a class="nav-link" href="{% url 'home' %}"><button id = "home">Go Home</button></a>
+
+    <script type="text/javascript" src="{% static 'app.js' %}"></script>
+
+    <script>
+
+        const item = document.getElementById("cartItem")
+        const value = localStorage.getItem("item")
+        
+        
+        item.innerHTML = value
+
+        reverseItem(value)
+
+        countCV(value)
+
+        function reverseItem(text){
+
+            let itemrev = document.getElementById("cartItemReverse")
+            
+            let temp = text + "";
+            let rev = temp.split("");
+ 
+            let reverseArray = rev.reverse();
+
+            rev = reverseArray.join(""); 
+            
+            itemrev.innerHTML = rev
+
+        }
+
+        function countCV(text){
+            let countConsonant = document.getElementById("consonants");
+            let countVowel = document.getElementById("vowels");
+
+            let c = 0;
+            let v = 0;
+            
+            for(let i = 0; i < text.length; i++) {
+                if(text[i] == 'a' || text[i] == 'e' || text[i] == 'i' || text[i] == 'o' || text[i] == 'u'){
+                    v++;
+                }else{
+                    c++;
+                }
+
+
+
+            }
+
+            countConsonant.innerHTML = c
+            countVowel.innerHTML = v
+        }
+            
+    </script>
+
+</body>
+</html>

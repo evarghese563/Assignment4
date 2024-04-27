@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Reader</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Hello</h1>
+    
+    <input type="file" name="inputfile" id="inputfile">
+    <h3>Item in cart</h3>
+    <p id = "item"></p>
+
+
+    <button onclick="submitFile()">Submit</button>
+    
+
+    <a class="nav-link" href="{% url 'checkout' %}"><button id = "checkout">Checkout: 0</button></a>
+
+
+    <script type="text/javascript" src="{% static 'app.js' %}"></script>
+    
+</body>
+</html>
